@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/optimum_assessment_weather/static/css/main.a33547f7.chunk.css",
-    "main.js": "/optimum_assessment_weather/static/js/main.d7b8a158.chunk.js",
-    "main.js.map": "/optimum_assessment_weather/static/js/main.d7b8a158.chunk.js.map",
-    "runtime~main.js": "/optimum_assessment_weather/static/js/runtime~main.8decd496.js",
-    "runtime~main.js.map": "/optimum_assessment_weather/static/js/runtime~main.8decd496.js.map",
-    "static/js/2.dcfd6ce5.chunk.js": "/optimum_assessment_weather/static/js/2.dcfd6ce5.chunk.js",
-    "static/js/2.dcfd6ce5.chunk.js.map": "/optimum_assessment_weather/static/js/2.dcfd6ce5.chunk.js.map",
-    "index.html": "/optimum_assessment_weather/index.html",
-    "precache-manifest.957e790875ec46915076bd6078585886.js": "/optimum_assessment_weather/precache-manifest.957e790875ec46915076bd6078585886.js",
-    "service-worker.js": "/optimum_assessment_weather/service-worker.js",
-    "static/css/main.a33547f7.chunk.css.map": "/optimum_assessment_weather/static/css/main.a33547f7.chunk.css.map"
+    "main.css": "/weather_reporter/static/css/main.714aaf4a.chunk.css",
+    "main.js": "/weather_reporter/static/js/main.44d18b6a.chunk.js",
+    "main.js.map": "/weather_reporter/static/js/main.44d18b6a.chunk.js.map",
+    "runtime~main.js": "/weather_reporter/static/js/runtime~main.0bfb6189.js",
+    "runtime~main.js.map": "/weather_reporter/static/js/runtime~main.0bfb6189.js.map",
+    "static/js/2.caf93f54.chunk.js": "/weather_reporter/static/js/2.caf93f54.chunk.js",
+    "static/js/2.caf93f54.chunk.js.map": "/weather_reporter/static/js/2.caf93f54.chunk.js.map",
+    "index.html": "/weather_reporter/index.html",
+    "precache-manifest.aeb16d8cf1a9ac38e210a84cc3de95c6.js": "/weather_reporter/precache-manifest.aeb16d8cf1a9ac38e210a84cc3de95c6.js",
+    "service-worker.js": "/weather_reporter/service-worker.js",
+    "static/css/main.714aaf4a.chunk.css.map": "/weather_reporter/static/css/main.714aaf4a.chunk.css.map"
   }
 }
