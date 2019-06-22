@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 
 /**
  * Function component to render one week forcast.
@@ -6,7 +7,7 @@ import React, { useState, useEffect } from "react";
  * @param {List} forcast prop with list for a week
  * @returns {Component} Week forcast component
  */
-export default function WeekForcast({ forcast, updateTodayWeather }) {
+function WeekForcast({ forcast, updateTodayWeather }) {
   const [currentDay, setCurrentDay] = useState("Monday");
 
   useEffect(() => {
@@ -44,3 +45,10 @@ export default function WeekForcast({ forcast, updateTodayWeather }) {
     </div>
   );
 }
+
+WeekForcast.propTypes = {
+  forcast: PropTypes.array.isRequired,
+  updateTodayWeather: PropTypes.func.isRequired
+}
+
+export default WeekForcast;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 /**
  * Function component to render today's weather information.
@@ -6,7 +7,7 @@ import React from "react";
  * @param {String} cityName prop
  * @returns {Component} Week forcast component
  */
-export default function WeatherToday({ currentWeather, cityName }) {
+function WeatherToday({ currentWeather, cityName }) {
   if (!currentWeather) {
     return "Loading...";
   }
@@ -43,3 +44,10 @@ export default function WeatherToday({ currentWeather, cityName }) {
     </>
   );
 }
+
+WeatherToday.propTypes = {
+  currentWeather: PropTypes.object.isRequired,
+  cityName: PropTypes.string.isRequired
+}
+
+export default WeatherToday;

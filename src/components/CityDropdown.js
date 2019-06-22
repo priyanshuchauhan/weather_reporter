@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { cityList } from "../utils/constants";
 
 /**
@@ -6,14 +7,14 @@ import { cityList } from "../utils/constants";
  * @param {Function} handleCityChange callback function to update city
  * @returns {Component} Dropdown to select city
  */
-export default function WeatherToday({ handleCityChange }) {
+function CityDropdown({ handleCityChange }) {
   if (!handleCityChange) {
     return "Loading...";
   }
 
   return (
       <div className="dropdown-wrapper">
-      <label for="city-dropdown" className="city-dropdown-label">Select City</label>
+      <label htmlFor="city-dropdown" className="city-dropdown-label">Select City</label>
       <select
         id="city-dropdown"
         onChange={e => handleCityChange(e.target.value)}
@@ -28,3 +29,9 @@ export default function WeatherToday({ handleCityChange }) {
       </div>
   );
 }
+
+CityDropdown.propTypes = {
+  handleCityChange: PropTypes.func.isRequired
+}
+
+export default CityDropdown;
