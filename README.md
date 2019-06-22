@@ -1,6 +1,6 @@
 ## Live Demo:
 
-https://priyanshuchauhan.github.io/optimum_assessment_weather/
+https://priyanshuchauhan.github.io/weather_reporter
 
 ## Dummy
 
