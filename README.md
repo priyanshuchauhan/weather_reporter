@@ -2,6 +2,11 @@
 
 https://priyanshuchauhan.github.io/optimum_assessment_weather/
 
+## Dummy
+
+![](readme.gif)
+
+
 ## Assignment
 Use react latest version (16.8) without any frontend ui framework. Use local state without any state management library (mobx or redux).
 The data should be retrieved from OpenWeatherMap, a free api. Note that you will need to sign up for an API key from OpenWeatherMap in order to use it. Use the 5 day weather forecast API (https://openweathermap.org/forecast5).
