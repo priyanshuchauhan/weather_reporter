@@ -31,3 +31,10 @@
   height: 48px;
   width: 48px;
 }
+
+.forcast-section {
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}

@@ -6,7 +6,14 @@ import {
   weatherIconURL
 } from "./constants";
 
-// TODO: cache
+/**
+ * Function to make async call to get weather details for the provided city
+ * Caching: In case the API has alreay been called for the city
+ * then localstorage data will be used
+ *  
+ * @param {String} cityName example "London"
+ * @returns {Promise} Either API call promise or localstore wrapped promise
+ */
 function getWeatherReport(cityName) {
   const url = new URL(apiRootURL);
   url.searchParams.append("q", cityName);
@@ -14,10 +21,15 @@ function getWeatherReport(cityName) {
   url.searchParams.append("units", tempUnit);
   url.searchParams.append("appid", appID);
 
+  const stored = localStorage[cityName];
+  if (stored) {
+    return Promise.resolve(JSON.parse(stored));
+  }  
+
   const weatherList = fetch(url.href)
     .then(results => results.json())
     .then(data => {
-      if (!data || data.cod !== "200") {
+      if (!data) {
         return;
       }
 
@@ -37,7 +49,7 @@ function getWeatherReport(cityName) {
         }.png`;
         return formattedResponse;
       });
-      console.log("##weatherListResponse", weatherListResponse);
+      localStorage[cityName] = JSON.stringify(weatherListResponse);
       return weatherListResponse;
     });
   return weatherList;

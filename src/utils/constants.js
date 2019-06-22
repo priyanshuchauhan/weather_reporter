@@ -20,13 +20,13 @@ export const cityList = [
 ];
 
 export const daysInWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
+  "Sun",
+  "Mon",
+  "Tues",
+  "Wed",
+  "Thurs",
+  "Fri",
+  "Sat"
 ];
 
 export const dataRequired = [

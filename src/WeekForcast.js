@@ -1,39 +1,44 @@
 import React, { useState, useEffect } from "react";
-import * as weatherTypesImages from "./assets";
-import {
-  weatherTypes,
-  daysInWeek,
-} from "./utils/constants";
+import { weatherTypes, daysInWeek } from "./utils/constants";
 
-function WeekForcast(forcast) {
+/**
+ * Function component to render one week forcast.
+ * New API call would be made on day change.
+ * @param {List} forcast prop with list for a week
+ * @returns {Component} Week forcast component
+ */
+export default function WeekForcast({ forcast }) {
   const [currentDay, setCurrentDay] = useState("Monday");
 
-
-  const handleDayChange = event => {
-    const selectedCity = event.target.value;
-    setCurrentDay(selectedCity);
-  };
   useEffect(() => {
     // API call
     console.log("##currentDay", currentDay);
   }, [currentDay]); // <-- change day from clicks
 
+  if (!forcast) {
+    return "Loading...";
+  }
+
   return (
     <>
       <div>
         {daysInWeek.map((day, index) => (
-          <span key={day}>
+          <span
+            key={day}
+            onClick={() => setCurrentDay(day)}
+            className="forcast-section"
+          >
             {day}
-            <img
-              className="forcast-image"
-              src={weatherTypesImages[weatherTypes[index]]}
-              alt="partlyCloudy"
-            />
+            {forcast[index] && (
+              <img
+                className="forcast-image"
+                src={forcast[index].weatherIcon}
+                alt={forcast[index].description}
+              />
+            )}
           </span>
         ))}
       </div>
     </>
   );
 }
-
-export default WeekForcast;
