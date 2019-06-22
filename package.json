@@ -1,6 +1,6 @@
 {
-  "name": "optimum_assessment_weather",
-  "homepage": "https://priyanshuchauhan.github.io/optimum_assessment_weather",
+  "name": "weather_reporter",
+  "homepage": "https://priyanshuchauhan.github.io/weather_reporter/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

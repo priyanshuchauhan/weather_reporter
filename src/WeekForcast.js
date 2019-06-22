@@ -1,29 +1,13 @@
 import React, { useState, useEffect } from "react";
 import * as weatherTypesImages from "./assets";
+import {
+  weatherTypes,
+  daysInWeek,
+} from "./utils/constants";
 
-const weatherTypes = [
-  "partlyCloudy",
-  "rainLight",
-  "rainAndCloudy",
-  "sunny",
-  "thunderStorms"
-];
-
-const daysInWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-
-function WeekForcast() {
-  const [currentWeather, setCurrentWeather] = useState(null);
+function WeekForcast(forcast) {
   const [currentDay, setCurrentDay] = useState("Monday");
-  const [weatherType, setWeatherType] = useState(weatherTypes[2]);
-  const [forcast, setForcastWeather] = useState(null);
+
 
   const handleDayChange = event => {
     const selectedCity = event.target.value;
@@ -38,7 +22,7 @@ function WeekForcast() {
     <>
       <div>
         {daysInWeek.map((day, index) => (
-          <span>
+          <span key={day}>
             {day}
             <img
               className="forcast-image"

@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from "react";
-import * as weatherTypesImages from "./assets";
-import WeekForcast from './WeekForcast'
+import WeekForcast from "./WeekForcast";
+import getWeatherReport from "./utils/apiUtil";
+import { cityList } from "./utils/constants";
 
-const weatherTypes = [
-  "partlyCloudy",
-  "rainLight",
-  "rainAndCloudy",
-  "sunny",
-  "thunderStorms"
-];
 
-const cityList = ["Singapore", "Pune", "Moscow", "Dehradun", "Hong Kong"];
+const initialWeather = {
+  description: "Clouds",
+  humidity: 79,
+  pressure: 1007.15,
+  temperature: 22.15,
+  tempMax: 26.79,
+  tempMin: 22.15,
+  windSpeed: 1.89,
+  weatherIcon: "04n"
+};
 
 function WeatherPage() {
   const [cityName, setCityName] = useState(cityList[0]);
-  const [currentWeather, setCurrentWeather] = useState(null);
-  const [weatherType, setWeatherType] = useState(weatherTypes[0]);
+  const [currentWeather, setCurrentWeather] = useState(initialWeather);
   const [forcast, setForcastWeather] = useState(null);
-  const count = 5;
-  const tempUnit = "metric";
-  const appID = "4281f1dfc472741e8cb4a56f4ec88f88";
 
   const handleCityChange = event => {
     const selectedCity = event.target.value;
@@ -27,19 +26,15 @@ function WeatherPage() {
   };
 
   useEffect(() => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&cnt=${count}&units=${tempUnit}&appid=${appID}`
-    )
-      .then(results => results.json())
-      .then(data => {
-        if (!data || data.cod !== "200") {
-          return;
-        }
-        const weatherList = data.list.map(dataInstance => dataInstance.main);
-        setCurrentWeather(weatherList[0]);
-        setForcastWeather(weatherList);
-      });
-  }, [cityName]); // <-- change cities from dropdown
+    getWeatherReport(cityName).then(weatherList => {
+      setCurrentWeather(weatherList[0]);
+      setForcastWeather(weatherList);
+    });
+  }, [cityName]);
+
+  if (!currentWeather && !forcast) {
+    return "Loading...";
+  }
 
   return (
     <>
@@ -50,18 +45,25 @@ function WeatherPage() {
           </option>
         ))}
       </select>
-      <img src={weatherTypesImages[weatherType]} alt="partlyCloudy" />
-      Temparature:{" "}
-      {!currentWeather || !forcast ? "Loading..." : `${currentWeather.temp}`}
-      <div className="">{cityName}</div>
+      <img src={currentWeather.weatherIcon} alt={currentWeather.description} />
+
       <div className="">Wednesday, 1:00 am</div>
+      Temparature: {currentWeather.temperature}
+      <div className="">{cityName}</div>
       <div>
-        <span className="">Mostly Cloudy</span>
+        <span className="">{currentWeather.temperature}</span>
       </div>
       <div>
-        Precipitation: <span>0%</span>
+        It's: <span>{currentWeather.description}</span>
       </div>
-      <WeekForcast/>
+      <div>
+        Humidity: <span>{currentWeather.humidity}</span>
+      </div>
+      <div>
+        WindSpeed: <span>{currentWeather.windSpeed}</span>
+      </div>
+
+      <WeekForcast forcast={forcast}/>
     </>
   );
 }
