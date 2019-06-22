@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as weatherTypesImages from "./assets";
+import WeekForcast from './WeekForcast'
 
 const weatherTypes = [
   "partlyCloudy",
@@ -25,7 +26,6 @@ function WeatherPage() {
     setCityName(selectedCity);
   };
 
-/*
   useEffect(() => {
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&cnt=${count}&units=${tempUnit}&appid=${appID}`
@@ -40,7 +40,6 @@ function WeatherPage() {
         setForcastWeather(weatherList);
       });
   }, [cityName]); // <-- change cities from dropdown
-*/
 
   return (
     <>
@@ -62,6 +61,7 @@ function WeatherPage() {
       <div>
         Precipitation: <span>0%</span>
       </div>
+      <WeekForcast/>
     </>
   );
 }
