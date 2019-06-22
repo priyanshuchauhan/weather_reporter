@@ -12,8 +12,10 @@ export default function WeatherToday({ handleCityChange }) {
   }
 
   return (
-    <>
+      <div className="dropdown-wrapper">
+      <label for="city-dropdown" className="city-dropdown-label">Select City</label>
       <select
+        id="city-dropdown"
         onChange={e => handleCityChange(e.target.value)}
         className="dropdown"
       >
@@ -23,6 +25,6 @@ export default function WeatherToday({ handleCityChange }) {
           </option>
         ))}
       </select>
-    </>
+      </div>
   );
 }

@@ -11,7 +11,7 @@ export const cityList = [
   "Hong Kong"
 ];
 
-export const daysInWeek = [
+export const daysInWeekShortHand = [
   "Sun",
   "Mon",
   "Tues",
@@ -19,4 +19,14 @@ export const daysInWeek = [
   "Thurs",
   "Fri",
   "Sat"
+];
+
+export const daysInWeek = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
 ];

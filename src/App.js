@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import "./styles/App.css";
 import WeatherToday from "./components/WeatherToday";
 import WeekForcast from "./components/WeekForcast";
@@ -18,21 +18,22 @@ function App() {
   }, [cityName]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {(!currentWeather || !forcast) && "Loading..."}
+    <div className="Weather-App">
+      {(!currentWeather || !forcast) && "Loading..."}
 
-        {currentWeather && forcast && (
-          <>
-            <CityDropdown
-              handleCityChange={selectedCity => setCityName(selectedCity)}
-            />
-            <WeatherToday currentWeather={currentWeather} cityName={cityName} />
-            <br />
-            <WeekForcast forcast={forcast} />
-          </>
-        )}
-      </header>
+      {currentWeather && forcast && (
+        <div className="report-wrapper">
+          <CityDropdown
+            handleCityChange={selectedCity => setCityName(selectedCity)}
+          />
+          <WeatherToday currentWeather={currentWeather} cityName={cityName} />
+          <br />
+          <WeekForcast
+            forcast={forcast}
+            updateTodayWeather={newWeather => setCurrentWeather(newWeather)}
+          />
+        </div>
+      )}
     </div>
   );
 }

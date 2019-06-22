@@ -1,40 +1,84 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
+.Weather-App {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10vh 0 0 30vh;
+
+  color: rgb(135, 135, 135);
+  font-family: arial, sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  height: 19.2px;
+  line-height: 19.2px;
+  text-align: left;
+  width: 800px;
 }
 
-.App-link {
-  color: #61dafb;
+.report-wrapper {
+  border: 1px solid #dfe1e5;
+  border-radius: 8px;
+  padding: 20px 16px 24px 16px;
+}
+
+.dropdown-wrapper {
+  float: right;
 }
 
 .dropdown {
-  background-color: #3498db;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+  padding: 12px;
+  font-size: 14px;
   cursor: pointer;
+  background-color: rgb(246, 246, 246);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px inset;
+  color: rgb(34, 34, 34);
+}
+
+.city-dropdown-label {
+  padding-right: 15px;
+}
+
+.city-name {
+  font-size: 24px;
+  height: 28.8px;
+  line-height: 28.8px;
+}
+
+.today-main-content {
+  display: flex;
+  padding-top: 20px;
+}
+
+.weather-image-parent {
+  width: 250px;
+}
+
+.today-temparature {
+  margin: auto auto;
+  color: rgb(33, 33, 33);
+  display: inline;
+  font-size: 64px;
+  font-weight: 400;
+}
+
+.additional-info {
+  margin-left: auto;
+}
+
+.forcast-section {
+  text-align: center;
+  cursor: pointer;
+  display: table-cell;
+  padding: 20px 30px;
+}
+
+.forcast-image-wrapper {
+  flex-direction: column;
+  display: flex;
+}
+
+.forcast-day {
 }
 
 .forcast-image {
   margin: 1px 4px 0;
-  height: 48px;
+  height: 100px;
   width: 48px;
-}
-
-.forcast-section {
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
 }

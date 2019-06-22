@@ -13,21 +13,32 @@ export default function WeatherToday({ currentWeather, cityName }) {
 
   return (
     <>
-      <img src={currentWeather.weatherIcon} alt={currentWeather.description} />
-      <div className="">Wednesday, 1:00 am</div>
-      Temparature: {currentWeather.temperature}
-      <div className="">{cityName}</div>
-      <div>
-        <span className="">{currentWeather.temperature}</span>
-      </div>
-      <div>
-        It's: <span>{currentWeather.description}</span>
-      </div>
-      <div>
-        Humidity: <span>{currentWeather.humidity}</span>
-      </div>
-      <div>
-        WindSpeed: <span>{currentWeather.windSpeed}</span>
+      <div className="city-name">{cityName}</div>
+      <div className="">{currentWeather.dayNameFull}, 12:00 am</div>
+      <div className="">{currentWeather.description}</div>
+
+      <div className="today-main-content">
+        <div className="weather-image-parent">
+          <img
+            src={currentWeather.weatherIcon}
+            alt={currentWeather.description}
+          />
+          <span className="today-temparature">
+            {currentWeather.temperature}
+          </span>
+          <span>°C</span>
+        </div>
+        <div className="additional-info">
+          <div>
+            Humidity: <span>{currentWeather.humidity}%</span>
+          </div>
+          <div>
+            Pressure: <span>{currentWeather.pressure}mb</span>
+          </div>
+          <div>
+            Wind: <span>{currentWeather.windSpeed}km/hr</span>
+          </div>
+        </div>
       </div>
     </>
   );

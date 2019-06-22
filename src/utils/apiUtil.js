@@ -1,4 +1,11 @@
-import { tempUnit, appID, apiRootURL, weatherIconURL } from "./constants";
+import {
+  tempUnit,
+  appID,
+  apiRootURL,
+  weatherIconURL,
+  daysInWeek,
+  daysInWeekShortHand
+} from "./constants";
 
 /**
  * Function to make async call to get weather details for the provided city
@@ -14,9 +21,9 @@ function getWeatherReport(cityName) {
   url.searchParams.append("units", tempUnit);
   url.searchParams.append("appid", appID);
 
-  const stored = sessionStorage[cityName];
-  if (stored) {
-    return Promise.resolve(JSON.parse(stored));
+  const cachedData = sessionStorage[cityName];
+  if (cachedData) {
+    return Promise.resolve(JSON.parse(cachedData));
   }
 
   const weatherList = fetch(url.href)
@@ -38,13 +45,18 @@ function getWeatherReport(cityName) {
           return;
         }
 
+        const dayName = daysInWeekShortHand[weatherDate.getDay()];
+        const dayNameFull = daysInWeek[weatherDate.getDay()];
+
         const formattedResponse = {
           date: weatherDate,
+          dayName,
+          dayNameFull,
           humidity: dataInstance.main.humidity,
           pressure: dataInstance.main.pressure,
           temperature: dataInstance.main.temp,
-          tempMax: dataInstance.main.temp_max,
-          tempMin: dataInstance.main.temp_min,
+          tempMax: dataInstance.main.temp_max && Math.trunc(dataInstance.main.temp_max),
+          tempMin: dataInstance.main.temp_min && Math.trunc(dataInstance.main.temp_min),
           windSpeed: dataInstance.wind.speed,
           description: weatherMeta && weatherMeta[0].main,
           weatherIcon: weatherMeta && weatherMeta[0].icon

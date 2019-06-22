@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { daysInWeek } from "../utils/constants";
 
 /**
  * Function component to render one week forcast.
@@ -7,38 +6,41 @@ import { daysInWeek } from "../utils/constants";
  * @param {List} forcast prop with list for a week
  * @returns {Component} Week forcast component
  */
-export default function WeekForcast({ forcast }) {
+export default function WeekForcast({ forcast, updateTodayWeather }) {
   const [currentDay, setCurrentDay] = useState("Monday");
 
   useEffect(() => {
-    // API call
-    console.log("##currentDay", currentDay);
-  }, [currentDay]); // <-- change day from clicks
+    const newWeather = forcast.find(
+      forcastInstance => forcastInstance.dayName === currentDay
+    );
+    newWeather && updateTodayWeather(newWeather);
+  }, [forcast, updateTodayWeather, currentDay]);
 
   if (!forcast) {
     return "Loading...";
   }
 
   return (
-    <>
-      <div>
-        {daysInWeek.map((day, index) => (
-          <span
-            key={day}
-            onClick={() => setCurrentDay(day)}
-            className="forcast-section"
-          >
-            {day}
-            {forcast[index] && (
-              <img
-                className="forcast-image"
-                src={forcast[index].weatherIcon}
-                alt={forcast[index].description}
-              />
-            )}
+    <div className="forcast-wrapper">
+      {forcast.map(forcastInstance => (
+        <span
+          key={forcastInstance.dayName}
+          onClick={() => setCurrentDay(forcastInstance.dayName)}
+          className="forcast-section"
+        >
+          <span className="forcast-image-wrapper">
+            <span className="forcast-day">{forcastInstance.dayName}</span>
+            <img
+              src={forcastInstance.weatherIcon}
+              alt={forcastInstance.description}
+            />
+            <span>
+                {forcastInstance.tempMax}° &nbsp;
+                {forcastInstance.tempMin}°
+            </span>
           </span>
-        ))}
-      </div>
-    </>
+        </span>
+      ))}
+    </div>
   );
 }
