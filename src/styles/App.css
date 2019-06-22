@@ -1,7 +1,6 @@
 .Weather-App {
   min-height: 100vh;
   padding: 10vh 0 0 30vh;
-
   color: rgb(135, 135, 135);
   font-family: arial, sans-serif;
   font-size: 16px;
@@ -10,6 +9,12 @@
   line-height: 19.2px;
   text-align: left;
   width: 800px;
+}
+
+@media only screen and (max-width: 900px) {
+  .Weather-App {
+    padding: 0;
+  }
 }
 
 .report-wrapper {

@@ -5,8 +5,8 @@ export const weatherIconURL = 'http://openweathermap.org/img/w/';
 
 export const cityList = [
   "Singapore",
-  "Pune",
-  "Moscow",
+  "London",
+  "Berlin",
   "Dehradun",
   "Hong Kong"
 ];
