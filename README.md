@@ -4,7 +4,7 @@ https://priyanshuchauhan.github.io/optimum_assessment_weather/
 
 ## Dummy
 
-![](readme.gif)
+![](https://media.giphy.com/media/JlpwfdHDyAi5tW3QH6/giphy.gif)
 
 
 ## Assignment
