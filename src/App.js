@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/App.css";
 import WeatherToday from "./components/WeatherToday";
 import WeekForcast from "./components/WeekForcast";
