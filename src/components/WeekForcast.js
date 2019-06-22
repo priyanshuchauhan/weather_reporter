@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { weatherTypes, daysInWeek } from "./utils/constants";
+import { daysInWeek } from "../utils/constants";
 
 /**
  * Function component to render one week forcast.
