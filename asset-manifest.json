@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/weather_reporter/static/css/main.f34f249d.chunk.css",
-    "main.js": "/weather_reporter/static/js/main.20df12fc.chunk.js",
-    "main.js.map": "/weather_reporter/static/js/main.20df12fc.chunk.js.map",
+    "main.js": "/weather_reporter/static/js/main.3b4ef61b.chunk.js",
+    "main.js.map": "/weather_reporter/static/js/main.3b4ef61b.chunk.js.map",
     "runtime~main.js": "/weather_reporter/static/js/runtime~main.0bfb6189.js",
     "runtime~main.js.map": "/weather_reporter/static/js/runtime~main.0bfb6189.js.map",
     "static/js/2.caf93f54.chunk.js": "/weather_reporter/static/js/2.caf93f54.chunk.js",
     "static/js/2.caf93f54.chunk.js.map": "/weather_reporter/static/js/2.caf93f54.chunk.js.map",
     "index.html": "/weather_reporter/index.html",
-    "precache-manifest.9290dc393a943516392f186bbf65576f.js": "/weather_reporter/precache-manifest.9290dc393a943516392f186bbf65576f.js",
+    "precache-manifest.6234be074d71887e6e83350d4577331c.js": "/weather_reporter/precache-manifest.6234be074d71887e6e83350d4577331c.js",
     "service-worker.js": "/weather_reporter/service-worker.js",
     "static/css/main.f34f249d.chunk.css.map": "/weather_reporter/static/css/main.f34f249d.chunk.css.map"
   }
