@@ -8,14 +8,25 @@ import {
 } from "./constants";
 
 /**
+ * Factory function to inject fetch dependency for testing
+ *
+ * @param {String} cityName example "London"
+ * @returns {Promise} Either API call promise or localstore wrapped promise
+ */
+export default function getWeatherReport(cityName) {
+  return getWeatherReportDI(fetch, cityName);
+}
+
+/**
  * Function to make async call to get weather details for the provided city
  * Caching: In case the API has alreay been called for the city
  * then localstorage data will be used
  *
  * @param {String} cityName example "London"
+ * @param {function} fetch Dependency Injection for testing
  * @returns {Promise} Either API call promise or localstore wrapped promise
  */
-function getWeatherReport(cityName) {
+export function getWeatherReportDI(fetch, cityName) {
   const url = new URL(apiRootURL);
   url.searchParams.append("q", cityName);
   url.searchParams.append("units", tempUnit);
@@ -75,5 +86,3 @@ function getWeatherReport(cityName) {
     });
   return weatherList;
 }
-
-export default getWeatherReport;
