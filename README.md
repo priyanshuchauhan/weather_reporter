@@ -6,6 +6,15 @@ https://priyanshuchauhan.github.io/weather_reporter
 
 ![](https://media.giphy.com/media/JlpwfdHDyAi5tW3QH6/giphy.gif)
 
+## Run project
+
+1. `npm install`
+2. `npm start`
+
+## Run test cases
+
+1. `npm test`
+
 
 ## Assignment
 Use react latest version (16.8) without any frontend ui framework. Use local state without any state management library (mobx or redux).
